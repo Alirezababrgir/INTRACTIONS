@@ -42,7 +42,8 @@
  */
 
  require('dotenv').config();
- var { MNEMONIC, PROJECT_ID } = process.env;
+
+ var {MNEMONIC,PROJECT_ID } = process.env;
 
  const HDWalletProvider = require('@truffle/hdwallet-provider');
 
@@ -64,11 +65,11 @@ module.exports = {
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
-    // development: {
-    //  host: "127.0.0.1",     // Localhost (default: none)
-    //  port: 8545,            // Standard Ethereum port (default: none)
-    //  network_id: "*",       // Any network (default: none)
-    // },
+     development: {
+      host: "127.0.0.1",     // Localhost (default: none)
+      port: 9545,            // Standard Ethereum port (default: none)
+      network_id: "*",       // Any network (default: none)
+     },
     //
     // An additional network, but with some advanced options…
     // advanced: {
@@ -82,20 +83,14 @@ module.exports = {
     //
     // Useful for deploying to a public network.
     // Note: It's important to wrap the provider as a function to ensure truffle uses a new provider every time.
-    // goerli: {
-    //   provider: () => new HDWalletProvider(MNEMONIC, `https://goerli.infura.io/v3/${PROJECT_ID}`),
-    //   network_id: 5,       // Goerli's id
-    //   confirmations: 2,    // # of confirmations to wait between deployments. (default: 0)
-    //   timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
-    //   skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
-    // },
-    bnb: {
-    provider: () => new HDWalletProvider(MNEMONIC="trick inherit rude voyage select universe zero violin ecology shadow ethics wash", PROJECT_ID ="https://endpoints.omniatech.io/v1/bsc/testnet/public"),
-    network_id: 97,       // Goerli's id
-    confirmations: 2,    // # of confirmations to wait between deployments. (default: 0)
-    timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
-    skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
-    },
+     tbnb: {
+       provider: () => new HDWalletProvider(process.env.MNEMONIC="trick inherit rude voyage select universe zero violin ecology shadow ethics wash", process.env.PROJECT_ID="https://endpoints.omniatech.io/v1/bsc/testnet/public"),
+       networkCheckTimeout: 10000,
+       network_id: 97,       // tbnb's id
+       confirmations: 2,    // # of confirmations to wait between deployments. (default: 0)
+       timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+       skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+     },
      //ropsten: {
       // provider: () => new HDWalletProvider(mnemonic, `https://ropsten.infura.io/${}`),
       // network_id: 3,       // Ropsten's id
@@ -112,7 +107,7 @@ module.exports = {
     //   production: true    // Treats this network as if it was a public net. (default: false)
     // }
   },
-
+  
   // Set default mocha options here, use special reporters, etc.
   mocha: {
     // timeout: 100000
