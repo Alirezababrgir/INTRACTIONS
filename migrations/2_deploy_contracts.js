@@ -1,5 +1,8 @@
-const test = artifacts.require("tst");
+const ERC = artifacts.require("tst");
+
+
+
 
 module.exports = function(deployer) {
-  deployer.deploy(test);
+  deployer.deploy(ERC);
 };
