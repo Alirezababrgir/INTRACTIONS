@@ -84,21 +84,22 @@ module.exports = {
     // Useful for deploying to a public network.
     // Note: It's important to wrap the provider as a function to ensure truffle uses a new provider every time.
      tbnb: {
-       provider: () => new HDWalletProvider(process.env.MNEMONIC="trick inherit rude voyage select universe zero violin ecology shadow ethics wash", process.env.PROJECT_ID="https://endpoints.omniatech.io/v1/bsc/testnet/public"),
-       networkCheckTimeout: 10000,
+       provider: () => new HDWalletProvider(process.env.MNEMONIC="695f947b629dc01346c9f24de87ee9e023e222a242674c72535468b96bafcc1f",process.env.PROJECT_ID ="https://endpoints.omniatech.io/v1/bsc/testnet/public"),
        network_id: 97,       // tbnb's id
+       networkCheckTimeout: 999999,
        confirmations: 2,    // # of confirmations to wait between deployments. (default: 0)
        timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
        skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
      },
-     //ropsten: {
-      // provider: () => new HDWalletProvider(mnemonic, `https://ropsten.infura.io/${}`),
-      // network_id: 3,       // Ropsten's id
-      // gas: 5500000,        // Ropsten has a lower block limit than mainnet
-      // confirmations: 2,    // # of confs to wait between deployments. (default: 0)
-      // timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
-      // skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
-   // },
+     goerli: {
+       provider: () => new HDWalletProvider(process.env.MNEMONIC="trick inherit rude voyage select universe zero violin ecology shadow ethics wash", "wss://goerli.infura.io/ws/v3/a96cba3919a44ca9b575a6f07922fdac"),
+       network_id: 5,       // Ropsten's id
+       networkCheckTimeout: 999999,
+       gas: 5500000,        // Ropsten has a lower block limit than mainnet
+       confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+       timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+       skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
     //
     // Useful for private networks
     // private: {

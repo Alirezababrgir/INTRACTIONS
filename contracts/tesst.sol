@@ -9,7 +9,7 @@ contract MYERC20 is ERC20{
         
     }
      function decimals() public view virtual override returns (uint8) {
-        return 10;
+        return 2;
      }
    
 }
