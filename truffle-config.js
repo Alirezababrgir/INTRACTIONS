@@ -44,6 +44,8 @@
  require('dotenv').config();
 
  var {MNEMONIC,PROJECT_ID } = process.env;
+ var {PRIVATEKEY,WEBSUKET} = process.env;
+
 
  const HDWalletProvider = require('@truffle/hdwallet-provider');
 
@@ -83,19 +85,20 @@ module.exports = {
     //
     // Useful for deploying to a public network.
     // Note: It's important to wrap the provider as a function to ensure truffle uses a new provider every time.
-     tbnb: {
-       provider: () => new HDWalletProvider(MNEMONIC="trick inherit rude voyage select universe zero violin ecology shadow ethics wash",PROJECT_ID="https://data-seed-prebsc-1-s1.binance.org:8545/"),
+      tbnb: {
+       provider: () => new HDWalletProvider(MNEMONIC,PROJECT_ID),
        network_id: 97,       // tbnb's id
        gasPrice: 50000000000,
        networkCheckTimeout: 999999,
        confirmations: 2,    // # of confirmations to wait between deployments. (default: 0)
        timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
-       skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+        skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
      },
-     goerli: {
-       provider: () => new HDWalletProvider("trick inherit rude voyage select universe zero violin ecology shadow ethics wash","wss://goerli.infura.io/ws/v3/a96cba3919a44ca9b575a6f07922fdac"),
-       network_id:5,       // Ropsten's id
-       gas: 5500000,        // Ropsten has a lower block limit than mainnet
+     sep: {
+       provider: () => new HDWalletProvider(PRIVATEKEY,WEBSUKET),
+       network_id:11155111,       // sepolia's id
+       networkCheckTimeout: 999999,
+       gas: 55000000,        // Ropsten has a lower block limit than mainnet
        confirmations: 2,    // # of confs to wait between deployments. (default: 0)
        timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
        skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )

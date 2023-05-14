@@ -1,4 +1,4 @@
-const ERC = artifacts.require("tst");
+const ERC = artifacts.require("zakh");
 
 
 
