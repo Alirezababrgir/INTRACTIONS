@@ -69,7 +69,7 @@ module.exports = {
     //
      development: {
       host: "127.0.0.1",     // Localhost (default: none)
-      port: 8545,            // Standard Ethereum port (default: none)
+      port: 7545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
      },
     //
@@ -97,8 +97,7 @@ module.exports = {
      sep: {
        provider: () => new HDWalletProvider(PRIVATEKEY,WEBSUKET),
        network_id:11155111,       // sepolia's id
-       networkCheckTimeout: 999999,
-       gas: 55000000,        // Ropsten has a lower block limit than mainnet
+       networkCheckTimeout: 999999,        // Ropsten has a lower block limit than mainnet
        confirmations: 2,    // # of confs to wait between deployments. (default: 0)
        timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
        skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
